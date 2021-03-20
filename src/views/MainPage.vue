@@ -18,13 +18,13 @@ export default defineComponent({
       if(aituBridge.isSupported()) {
           data = await aituBridge.getMe();
       }
-      console.log(data);
-      if (data) {
-          console.log('here')
-          this.$router.push('/dashboard');
-      } else {
-          this.$router.push('/welcome');
-      }
+    //   console.log(data);
+    //   if (data) {
+    //       console.log('here')
+    //       this.$router.push('/dashboard');
+    //   } else {
+    //       this.$router.push('/welcome');
+    //   }
       return { data };
     } catch (e) {
       console.log(e);
