@@ -1,16 +1,17 @@
 <template>
-    <ion-alert>
-        Welcome, you are invited here by {{ data?.name ?? ''}}
-    </ion-alert>
+    <ion-page>
+        <ion-alert>
+            Welcome, you are invited here by {{ data ? data.name : ''}}
+        </ion-alert>
+    </ion-page>
 </template>
 
 <script lang="ts">
-import { IonApp, IonRouterOutlet } from '@ionic/vue';
 import { defineComponent, onBeforeMount } from 'vue';
 import aituBridge from "@btsd/aitu-bridge";
 
 export default defineComponent({
-  name: 'Dashboard',
+  name: 'Welcome',
   components: {},
   async data() {
     try {
