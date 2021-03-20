@@ -14,8 +14,11 @@ export default defineComponent({
   },
   async data() {
     try {
-      const data = await aituBridge.getMe();
-      console.log(data)
+      let data = null;
+      if(aituBridge.isSupported()) {
+          data = await aituBridge.getMe();
+      }
+      console.log(data);
       if (data) {
           console.log('here')
           this.$router.push('/dashboard');
