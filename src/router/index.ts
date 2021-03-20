@@ -2,11 +2,13 @@ import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import Dashboard from '@/views/Dashboard.vue';
 import Welcome from '@/views/Welcome.vue';
+import MainPage from '@/views/MainPage.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/dashboard'
+    name: 'mainpage',
+    component: MainPage
   },
   {
     path: '/dashboard',
