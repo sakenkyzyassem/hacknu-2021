@@ -1,8 +1,9 @@
 <template>
-    <div>
-        START PAGE
-        {{data?.name ?? 'a'}}
-    </div>
+    <ion-header>
+        <ion-toolbar>
+            <ion-title>START PAGE {{data?.name ?? 'a'}}</ion-title>
+        </ion-toolbar>
+    </ion-header>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
