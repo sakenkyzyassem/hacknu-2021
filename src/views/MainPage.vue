@@ -1,9 +1,16 @@
 <template>
-    <ion-header>
-        <ion-toolbar>
-            <ion-title>START PAGE {{data?.name ?? 'a'}}</ion-title>
-        </ion-toolbar>
-    </ion-header>
+    <Suspense>
+        <template #default>
+            <ion-header>
+                <ion-toolbar>
+                    <ion-title>START PAGE {{data?.name ?? 'a'}}</ion-title>
+                </ion-toolbar>
+            </ion-header>
+        </template>
+        <template #fallback>
+            <span>Loading...</span>
+        </template>
+    </Suspense>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
@@ -12,20 +19,24 @@ export default defineComponent({
   name: "MainPage",
   components: {},
   methods: {
+        next() {
+            
+            console.log('here')
+        }
   },
   async data() {
     try {
-      let data = null;
+        let data = null
       if(aituBridge.isSupported()) {
           data = await aituBridge.getMe();
       }
-    //   console.log(data);
-    //   if (data) {
-    //       console.log('here')
-    //       this.$router.push('/dashboard');
-    //   } else {
-    //       this.$router.push('/welcome');
-    //   }
+      console.log(data);
+      if (!data) {
+          console.log('here')
+          this.$router.push('/dashboard');
+      } else {
+          this.$router.push('/welcome');
+      }
       return { data };
     } catch (e) {
       console.log(e);
